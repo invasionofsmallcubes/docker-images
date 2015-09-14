@@ -12,7 +12,7 @@ MAINTAINER Emanuele Ianni <dierre@gmail.com>
 ENV BUILD_PACKAGES bash libcurl4-openssl-dev git
 ENV RUBY_PACKAGES ruby ruby-dev bundler
 ENV EXECJS_DEPENDENCY nodejs
-ENV GIT_URL git://github.com/imathis/octopress.git
+ENV GIT_URL https://github.com/octopress/octopress.git
 
 # Update and install all of the required packages.
 # At the end, remove the apk cache
@@ -23,13 +23,11 @@ RUN apt-get install -y $RUBY_PACKAGES
 RUN apt-get install -y $EXECJS_DEPENDENCY
 RUN rm -rf /var/cache/apk/*
 
-RUN gem install --no-rdoc --no-ri execjs
-
 # cloning octopress repo and installing version
 WORKDIR ~
 RUN git clone $GIT_URL octopress
 WORKDIR octopress
-RUN gem install --no-rdoc --no-ri bundler
-#RUN rbenv rehash    # If you use rbenv, rehash to be able to run the bundle command
-RUN bundle install
-RUN rake install
+RUN gem install --no-rdoc --no-ri pry-byebug
+RUN gem install --no-rdoc --no-ri octopress-ink
+RUN gem install --no-rdoc --no-ri clash 
+RUN gem install --no-rdoc --no-ri octopress
