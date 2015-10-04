@@ -6,6 +6,9 @@
 # Sorry about that, this was done for my personal needs.
 # If there is a need for it just ask, I’ll cook that.
 
+# to build it run "docker build -t octopress ."
+# to run it run "docker run -d -p 127.0.0.1:80:4000 -v /Users/dierre/Projects/octopress:/root/octopress  octopress /bin/bash"
+
 FROM debian:jessie
 MAINTAINER Emanuele Ianni <dierre@gmail.com>
 
@@ -24,10 +27,10 @@ RUN apt-get install -y $EXECJS_DEPENDENCY
 RUN rm -rf /var/cache/apk/*
 
 # cloning octopress repo and installing version
-WORKDIR ~
-RUN git clone $GIT_URL octopress
-WORKDIR octopress
+
 RUN gem install --no-rdoc --no-ri pry-byebug
 RUN gem install --no-rdoc --no-ri octopress-ink
 RUN gem install --no-rdoc --no-ri clash 
 RUN gem install --no-rdoc --no-ri octopress
+RUN mkdir octopress
+WORKDIR octopress
