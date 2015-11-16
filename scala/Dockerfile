@@ -16,5 +16,6 @@ RUN tar zxvf scala.tgz
 RUN mv scala-2.11.7 scala
 ENV SCALA_HOME=scala
 ENV PATH=$PATH:/gradle-2.8/bin:$SCALA_HOME/bin
+RUN mkdir projects
 RUN scala -version
 RUN gradle -version
