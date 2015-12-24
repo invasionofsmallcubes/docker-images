@@ -7,7 +7,11 @@
 # If there is a need for it just ask, I’ll cook that.
 
 # to build it run "docker build -t octopress ."
-# to run it run "docker run -d -p 127.0.0.1:80:4000 -v /Users/dierre/Projects/octopress:/root/octopress  octopress /bin/bash"
+# to run it run 
+# docker run -p 4000:4000 -v /Users/eianni/Documents/personal/repositories/invasionofsmallcubes.github.io/:/octopress/ -i -t --entrypoint="/bin/bash" octopress
+# also remember that when you are using jekyll to check the blog run it this way
+# jekyll serve --host 0.0.0.0
+# so that you open the port to external vm clients
 
 FROM debian:jessie
 MAINTAINER Emanuele Ianni <dierre@gmail.com>
