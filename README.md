@@ -9,9 +9,7 @@ octopress: docker image to install a base version of octopress, to publish you c
 scala and gralde: docker image to install scala and gradle to give you a development environment
 
 To list all stopped containers:
-docker ps -a -q
+`docker ps -a -q`
 
 To remove all stopped containers:
-docker rm $(docker ps -a -q)
-
-
+`docker rm $(docker ps -a -q)`

@@ -14,7 +14,7 @@
 # so that you open the port to external vm clients
 
 FROM debian:jessie
-MAINTAINER Emanuele Ianni <dierre@gmail.com>
+LABEL maintainer="dierre@gmail.com"
 
 ENV BUILD_PACKAGES bash libcurl4-openssl-dev git
 ENV RUBY_PACKAGES ruby ruby-dev bundler
