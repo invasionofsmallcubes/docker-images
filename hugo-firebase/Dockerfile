@@ -1,4 +1,4 @@
-FROM klakegg/hugo:ext-debian
+FROM klakegg/hugo:0.69.2-ext-debian
 
 # upgrade all packages
 RUN apt-get update -y
